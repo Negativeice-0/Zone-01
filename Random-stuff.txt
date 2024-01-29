@@ -1,0 +1,64 @@
+Prime number
+
+The selected code is a simple Go program that checks if a number is prime. Here's a brief summary:
+
+- The `isPrime` function checks if a number is prime. It returns `false` if the number is less than 
+2 or if it has any divisors other than 1 and itself.
+- The `main` function prompts the user to enter a number. It then calls the `isPrime` function and 
+prints whether the entered number is prime.
+
+This is a good starting point for learning Go. You can try modifying this program or writing similar 
+ones to practice. For example, you could write a program that prints all prime numbers up to a given 
+number. Happy coding! 😊
+
+package main
+
+import (
+"fmt"
+"math"
+)
+
+func isPrime(num int) bool {
+if num < 2 {
+return false
+}
+maxDivisor := int(math.Sqrt(float64(num)))
+for i := 2; i <= maxDivisor; i++ {
+if num%i == 0 {
+return false
+}
+}
+return true
+}
+
+func main() {
+var num int
+
+fmt.Print("Enter a number: ")
+fmt.Scanln(&num)
+
+if isPrime(num) {
+fmt.Println("The entered number is prime:", num)
+} else {
+fmt.Println("The entered number is not prime.")
+}
+}
+
+A positive number is any number that is not less than 0.
+
+package main
+
+import "fmt"
+
+func main() {
+    var num int
+
+    fmt.Print("Enter a number: ")
+    fmt.Scanln(&num)
+
+    if num > 0 {
+        fmt.Println("The entered number is positive:", num)
+    } else {
+        fmt.Println("The entered number is not positive.")
+    }
+}
