@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func main() {
+func even() {
 	var num int
 	var i int
 

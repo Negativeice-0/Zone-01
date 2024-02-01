@@ -1,0 +1,49 @@
+package main
+
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
+
+type footballplayer struct {
+	name    string
+	number  int
+	stamina int
+	power   int
+	fame    string
+}
+
+// Method to kick the ball
+func (f footballplayer) kickball() {
+	shot := f.stamina + f.power
+	fmt.Printf("%s (#%d - %s) is kicking the ball. Shot: %d\n", f.name, f.number, f.fame, shot)
+}
+
+func main() {
+	rand.Seed(time.Now().UnixNano())
+
+	// Create a slice named 'team' to hold 11 football players.
+	team := make([]footballplayer, 11)
+
+	// Fictional footballer names, numbers, and fame
+	names := []string{"Lionel Messi", "Cristiano Ronaldo", "Neymar Jr.", "Mohamed Salah", "Kylian Mbappé", "Andrés Iniesta", "Virgil van Dijk", "Kevin De Bruyne", "Player 9", "Player 10", "Player 11"}
+	numbers := []int{10, 7, 11, 11, 7, 8, 4, 17, 9, 10, 11}
+	fames := []string{"GoalMaestro", "RocketMan", "SambaSkill", "SpeedySalah", "YoungProdigy", "Magician", "DefensiveWall", "PassMaster", "Fame 9", "Fame 10", "Fame 11"}
+
+	// Populate the 'team' slice with football players.
+	for i := 0; i < len(team); i++ {
+		team[i] = footballplayer{
+			name:    names[i],
+			number:  numbers[i],
+			stamina: rand.Intn(10) + 1, // Random number between 1 and 10
+			power:   rand.Intn(10) + 1, // Random number between 1 and 10
+			fame:    fames[i],
+		}
+	}
+
+	// Iterate over the 'team' slice and call the 'kickball' method for each player.
+	for i := 0; i < len(team); i++ {
+		team[i].kickball()
+	}
+}
